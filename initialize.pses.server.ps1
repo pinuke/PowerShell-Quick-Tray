@@ -1,5 +1,5 @@
 $PSES_BUNDLE_PATH = "C:\#\bin\PowerShellEditorServices"
-$SESSION_TEMP_PATH = "C:\#\var\session\powershell-editor-services"
+$SESSION_TEMP_PATH = "C:\#\src\PowerShell-Quick-Tray\session\"
 
 $command = @(
     "$PSES_BUNDLE_PATH/PowerShellEditorServices/Start-EditorServices.ps1",
