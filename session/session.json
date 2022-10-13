@@ -1,0 +1,7 @@
+{
+    "status": "started",
+    "languageServiceTransport": "NamedPipe",
+    "languageServicePipeName": "\\\\.\\pipe\\PSES_kcwaojum.hgg",
+    "debugServiceTransport": "NamedPipe",
+    "debugServicePipeName": "\\\\.\\pipe\\PSES_5bcff5rk.sza"
+}
