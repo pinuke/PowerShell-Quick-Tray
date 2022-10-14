@@ -5,6 +5,8 @@ $script:cfg = Get-Content ".\psqt.config.json" | Out-String | ConvertFrom-Json
 
 $script:continue = $true;
 
+$script:pipe, $script:writer, $script:reader = & ".\initialize.pses.connection.ps1"
+
 While( $continue ){
 
     Write-Host "PSES-tester> " -NoNewLine

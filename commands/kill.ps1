@@ -5,6 +5,8 @@ function Kill-Tree {
     Write-Host "killing pid $ppid"
 }
 
+. ".\commands\disconnect.ps1"
+
 Kill-Tree( $server.Id )
 $continue = $false;
 Write-Host "`r`nServer Process Stopped via Kill-Tree ($( $server.id ))"
