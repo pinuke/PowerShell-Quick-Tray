@@ -1,11 +1,10 @@
-$PSES_BUNDLE_PATH = "C:\#\bin\PowerShellEditorServices"
-$SESSION_TEMP_PATH = "C:\#\src\PowerShell-Quick-Tray\session\"
+$script:cfg = Get-Content ".\psqt.config.json" | Out-String | ConvertFrom-Json
 
-$command = @(
-    "$PSES_BUNDLE_PATH/PowerShellEditorServices/Start-EditorServices.ps1",
-        "-BundledModulesPath $PSES_BUNDLE_PATH",
-        "-LogPath $SESSION_TEMP_PATH/logs.log",
-        "-SessionDetailsPath $SESSION_TEMP_PATH/session.json",
+$script:command = @(
+    "$( $cfg.bundle )/PowerShellEditorServices/Start-EditorServices.ps1",
+        "-BundledModulesPath $( $cfg.bundle )",
+        "-LogPath $( $cfg.session )/logs.log",
+        "-SessionDetailsPath $( $cfg.session )/session.json",
         "-FeatureFlags @()",
         "-AdditionalModules @()",
         "-HostName 'My Client'",
@@ -14,4 +13,6 @@ $command = @(
         "-LogLevel Normal"
 )-join " "
 
-pwsh -NoLogo -NoProfile -Command $command
+$script:arguments = "-NoLogo -NoProfile -Command $command"
+
+Start-Process pwsh -ArgumentList $arguments -WindowStyle Minimized -PassThru
