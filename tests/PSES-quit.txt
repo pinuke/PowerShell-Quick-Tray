@@ -1,0 +1,24 @@
+**********************
+PowerShell transcript start
+Start time: 20221013172015
+**********************
+Transcript started, output file is .\tests\PSES-quit.txt
+C:\#\src\PowerShell-Quick-Tray [test-pses ≡ +23 ~2 -0 !]>
+PS>.\PSES-Terminal.ps1
+PSES-tester>
+
+status                   : started
+languageServiceTransport : NamedPipe
+languageServicePipeName  : PSES_d3dgo4ix.4po
+debugServiceTransport    : NamedPipe
+debugServicePipeName     : PSES_qrnpjz4v.awq
+
+PSES-tester>
+Server Process Stopped via CloseMainWindow()
+
+C:\#\src\PowerShell-Quick-Tray [test-pses ≡ +24 ~2 -0 !]>
+PS>stop-Transcript
+**********************
+PowerShell transcript end
+End time: 20221013172039
+**********************

@@ -1,0 +1,27 @@
+**********************
+PowerShell transcript start
+Start time: 20221013172054
+**********************
+Transcript started, output file is .\tests\PSES-kill.txt
+C:\#\src\PowerShell-Quick-Tray [test-pses ≡ +24 ~2 -0 !]>
+PS>.\PSES-Terminal.ps1
+PSES-tester>
+
+status                   : started
+languageServiceTransport : NamedPipe
+languageServicePipeName  : PSES_s1xxcday.sed
+debugServiceTransport    : NamedPipe
+debugServicePipeName     : PSES_ndvnrdin.yrc
+
+PSES-tester>
+killing pid 2328
+killing pid 10576
+
+Server Process Stopped via Kill-Tree (10576)
+
+C:\#\src\PowerShell-Quick-Tray [test-pses ≡ +25 ~2 -0 !]>
+PS>stop-Transcript
+**********************
+PowerShell transcript end
+End time: 20221013172121
+**********************
