@@ -1,7 +1,9 @@
-$script:server = & ".\initialize.pses.server.ps1"
-$script:continue = $true;
+$script:cfg = Get-Content ".\psqt.config.json" | Out-String | ConvertFrom-Json
 
+. ".\initialize.pses.server.ps1"
 . ".\define.getter.pses.session.ps1"
+
+$script:continue = $true;
 
 While( $continue ){
 
@@ -15,47 +17,9 @@ While( $continue ){
 
     Switch( $command ){
 
-        "kill" {
-
-            function Kill-Tree {
-                Param([int]$ppid)
-                Get-CimInstance Win32_Process | Where-Object { $_.ParentProcessId -eq $ppid } | ForEach-Object { Kill-Tree $_.ProcessId }
-                Stop-Process -Id $ppid
-                Write-Host "killing pid $ppid"
-            }
-
-            Kill-Tree( $server.Id )
-            $continue = $false;
-            Write-Host "`r`nServer Process Stopped via Kill-Tree ($( $server.id ))"
-
-        }
-        "quit" {
-
-            $null = $server.CloseMainWindow()
-            $continue = $false;
-            Write-Host "Server Process Stopped via CloseMainWindow()"
-
-        }
-        "get-cfg" {
-
-            $param = $param.Trim()
-
-            Switch( $param ){
-
-                "session" {
-
-                    Write-Output ( Get-PSESSession )
-                    
-                }
-                default {
-
-                    Write-Host "Requested config not valid"
-
-                }
-
-            }
-
-        }
+        "kill" { . ".\commands\kill.ps1" }
+        "quit" { . ".\commands\quit.ps1" }
+        "get-cfg" { . ".\commands\get-cfg.ps1" }
         default {
             Write-Host "Invalid input"
         }
